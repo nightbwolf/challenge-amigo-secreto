@@ -24,3 +24,10 @@ function atualizarLista(){
         lista.appendChild(li);
     });   
 }
+
+function sortearAmigo(){
+    if (nomes.length === 0){
+        alert("A lista está vazia. adicione nomes antes de sortear");
+        return;    
+    }
+}
