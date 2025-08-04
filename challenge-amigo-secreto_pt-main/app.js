@@ -1,38 +1,40 @@
 const nomes = [];
 
-function adicionarAmigo(){
+function adicionarAmigo() {
     const input = document.getElementById('amigo');
-    const nome = input.ariaValueMax.trim()
+    const nome = input.value.trim();
 
-    if (nome === ""){
+    if (nome === "") {
         alert("Por favor, digite um nome válido.");
         return;
     }
+
     nomes.push(nome);
     atualizarLista();
-    input.value="";
+    input.value = "";
     input.focus();
 }
 
-function atualizarLista(){
+function atualizarLista() {
     const lista = document.getElementById('listaAmigos');
     lista.innerHTML = "";
 
-    nomes.forEach(nome =>{
+    nomes.forEach(nome => {
         const li = document.createElement('li');
-        li.textcontent = nome;
+        li.textContent = nome;
         lista.appendChild(li);
-    });   
+    });
 }
 
-function sortearAmigo(){
-    if (nomes.length === 0){
-        alert("A lista está vazia. adicione nomes antes de sortear");
-        return;    
+function sortearAmigo() {
+    if (nomes.length === 0) {
+        alert("A lista está vazia. Adicione nomes antes de sortear.");
+        return;
     }
-}
 
-const indiceSorteado = Math.floor(Math.random() * nomes.length);
-const nomeSorteado = nomes[indiceSorteado];
-resultado = document.getElementById('resultado');
-resultado.innerHTMl = `<li>O amigo secreto sorteado é: <strong>${nomeSorteado}</strong></li>`;
+    const indiceSorteado = Math.floor(Math.random() * nomes.length);
+    const nomeSorteado = nomes[indiceSorteado];
+
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<li>O amigo secreto sorteado é: <strong>${nomeSorteado}</strong></li>`;
+}
